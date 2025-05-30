@@ -11,7 +11,7 @@ import { ChatService } from '../../services/chat.service';
   template: `
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
       <ion-fab-button (click)="toggleChat()">
-        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <ion-icon style="margin-right: 0px !important;" name="chatbubbles-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>
 
