@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #f4f6fc;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #0d1b2a;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .menu a {
+      display: block;
+      color: #b0c4de;
+      padding: 0.8rem 1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .menu a:hover {
+      background-color: #1b2d45;
+      color: #fff;
+    }
+
+    .content {
+      flex: 1;
+      padding: 2rem;
+      background-color: #fff;
+      overflow-y: auto;
+    }
+
+    .chat-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .chat-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #0d1b2a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .chat-popup {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #0d1b2a;
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .chat-body {
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 1rem;
+    }
+
+    .user-message {
+    text-align: right;
+    background-color: #ddd;
+    width: max-content;
+    margin-left: auto;
+    padding: 1rem;
+    border-radius: 28px;
+    }
+
+    .ai-message {
+      text-align: left;
+      color: #333;
+    }
+
+      .chat-input {
+    display: flex;
+    padding: 0.75rem;
+    border-top: 1px solid #eee;
+    background-color: #f4f6fc;
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .chat-input button {
+    background-color: #0d1b2a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+
+  .chat-input button:hover {
+    background-color: #16324c;
+  }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>UT SmartNote</h2>
+    <div class="menu">
+      <a href="catatan.html">Catatan Pribadi</a>
+      <a href="penyimpanan.html">Penyimpanan File Tugas</a>
+    </div>
+  </div>
+  <div class="content">
+    <h3>Selamat datang di Dashboard</h3>
+    <p>Pilih menu di sebelah kiri untuk mulai.</p>
+  </div>
+
+  <div class="chat-widget">
+    <div class="chat-button" onclick="toggleChat()">💬</div>
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">AI Chatbot</div>
+      <div class="chat-body" id="chatBody">
+        <div class="message user-message">Hi, kapan jadwal UAS 2025?</div>
+        <div class="message ai-message">Hi, jadwal UAS di UT untuk ajaran 2024/2025 yaitu 23 Juli - 15 Agustus. Beri saya tahu apabila anda memiliki pertanyaan lain!</div>
+      </div>
+        <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Tulis pesan...">
+        <button onclick="sendMessage()">Kirim</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const popup = document.getElementById('chatPopup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    const chatBody = document.getElementById('chatBody');
+
+    const observer = new MutationObserver(() => {
+      chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    observer.observe(chatBody, { childList: true });
+  </script>
+</body>
+</html>

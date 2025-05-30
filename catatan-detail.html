@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Catatan</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6fc;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #0d1b2a;
+      margin-bottom: 1.5rem;
+    }
+
+    .note-card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .note-title {
+      font-size: 1.2rem;
+      color: #0d1b2a;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-tags {
+      font-size: 0.9rem;
+      color: #445;
+      margin-bottom: 0.5rem;
+    }
+
+    .note-content {
+      margin-bottom: 0.5rem;
+    }
+
+    .note-actions a {
+      margin-right: 1rem;
+      color: #0d1b2a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .note-actions a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Daftar Catatan</h2>
+    <div class="note-card">
+      <div class="note-title">Contoh Judul Catatan</div>
+      <div class="note-tags">#tag1 #tag2</div>
+      <div class="note-content">Ini adalah isi singkat dari catatan pribadi...</div>
+      <div class="note-actions">
+        <a href="catatan-edit.html">Edit</a>
+        <a href="#">Hapus</a>
+      </div>
+    </div>
+    <!-- More notes -->
+  </div>
+</body>
+</html>

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  deepseekApiKey: 'sk-d23a229a65ba4beeaf17cd788725a811', // Replace with your actual API key
+  deepseekApiUrl: 'https://api.deepseek.com/chat/completions'
 };
 
 /*
